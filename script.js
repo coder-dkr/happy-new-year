@@ -2,6 +2,7 @@ function init() {
   var svg = document.querySelector(".scene");
   var zoom = false;
   var animationOn = false;
+  var audio = new Audio('./happi_happi.mp3');
 
   var viewBoxes = {
     "overHouses": {
@@ -114,6 +115,7 @@ function init() {
 
   function openBox() {
     document.querySelector(".gift").removeEventListener("click", openBox);
+
     TweenMax.set(".hat", {
       transformOrigin: "left bottom"
     });
@@ -137,6 +139,9 @@ function init() {
         document.querySelector(".gift").classList.add("hidden");
       }
     });
+
+    audio.play();
+    audio.loop = true;
   }
 
   function startAnimations() {
